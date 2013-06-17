@@ -1,0 +1,24 @@
+.container
+  .commits
+    %h1
+      Git Server
+      ="v#{GitServer::Version}"
+    %h2
+      Commits
+      %a{:class => 'reset'}
+    %ol.progress-bar
+      - commits.each do |commit|
+        %li.commit{:id => commit.sha}
+          %a{:href => "/commit/#{commit.sha}"}=commit.sha[0..20]
+          = haml :"commit_summary", :locals => {:commit => commit}
+        - if commit.parent
+          %li.separator
+          %li.diff_container{:id => "#{commit.parent.sha}##{commit.sha}"}
+            %a{:href => "/diff/#{commit.parent.sha}/#{commit.sha}"}
+              %img{:src => '/images/diff.png'}
+            = haml :"diff_summary"
+          %li.separator
+  .objects
+    %h2
+      Repository at
+      =repo.path

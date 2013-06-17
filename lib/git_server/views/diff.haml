@@ -1,0 +1,21 @@
+.diff_details
+  %h3
+    Diff:
+    %a{:href => "/commit/#{diffs.from}"}=diffs.from
+    <>
+    %a{:href => "/commit/#{diffs.to}"}=diffs.to
+  - diffs.each do |diff|
+    .detail-container{:class => diff.type}
+      .header
+        %span{:class => diff.type}
+          ="#{diff.type.capitalize} : "
+        =diff.path
+      - type = diff.blob && file_type(diff.blob, diff.path)
+      .content{:class => type}
+        - if type == :image
+          %img{:src => data_uri(diff.blob)}
+        - elsif type == :binary
+          %pre
+            Binary files differ
+        - else
+          = Diffy::HtmlFormatter.new(diff.patch.split("\n"), :include_plus_and_minus_in_html => true)

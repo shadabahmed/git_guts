@@ -1,0 +1,54 @@
+.diff{overflow:auto;font-family: Monaco; color: #333;line-height: 27px;}
+.diff ul{background:#fff;overflow:auto;font-size:13px;list-style:none;margin:0;padding:0;display:table;width:100%;}
+.diff del, .diff ins{display:block;text-decoration:none;}
+.diff li{padding:0; display:table-row;margin: 0;height:1em;}
+.diff li.ins{background:#dfd; color:#080}
+.diff li.del{background:#fee; color:#b00}
+.diff li:hover{background:#ffc}
+/* try 'whitespace:pre;' if you don't want lines to wrap */
+.diff del, .diff ins, .diff span{white-space:pre-wrap;}
+.diff del strong{font-weight:normal;background:#fcc;}
+.diff ins strong{font-weight:normal;background:#9f9;}
+.diff li.diff-comment { display: none; }
+.diff li.diff-block-info { background: none repeat scroll 0 0 gray; }
+
+.detail-container {
+    border: 1px solid #CCC;
+    margin-bottom: 1em;
+}
+
+.detail-container .header .deleted{color: darkred;}
+.detail-container .header .new{color: forestgreen;}
+.detail-container .header .modified{color: darkorange;}
+.detail-container .header .binary{color: saddlebrown;}
+.detail-container .header .image{color: dodgerblue;}
+.detail-container .header .text{color: darkmagenta;}
+.detail-container .header .commit{color: blueviolet;}
+.detail-container .header .tree{color: darkcyan;}
+
+.progress-bar li.diff_container .detail-container img{opacity: 1;}
+.detail-container .header {
+    padding: 5px 5px 5px 10px;
+    color: #555;
+    border-bottom: 1px solid #CCC;
+    background: #eee;
+    background-image: -webkit-gradient(linear, 0 0, 0 30, color-stop(0.066, #eee), to(#dfdfdf));
+    background-image: -webkit-linear-gradient(#eee 6.6%, #dfdfdf);
+    background-image: -moz-linear-gradient(#eee 6.6%, #dfdfdf);
+    background-image: -o-linear-gradient(#eee 6.6%, #dfdfdf);
+}
+
+.detail-container .content {
+    overflow: auto;
+    overflow-y: hidden;
+    background: #FFF;
+    color: #333;
+    font-size: 12px;
+    padding: 0 5px 0px 5px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), inset 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+.detail-container .content.image{
+    text-align: center;
+    padding: 5px;
+}

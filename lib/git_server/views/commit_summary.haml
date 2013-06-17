@@ -1,0 +1,19 @@
+%span.arrow
+.detail
+  .orig
+    %label SHA:
+    =commit.sha
+    %br
+    %label Name:
+    =commit.committer.name
+    %br
+    %label Email:
+    =commit.committer.email
+    %br
+    %label Date:
+    =commit.date.strftime("%l:%m%P, %d %h %Y")
+    %br
+    %label Message:
+    %br
+    %span.truncate=commit.message
+  .ajax

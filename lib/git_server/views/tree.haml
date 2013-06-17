@@ -1,0 +1,19 @@
+.tree
+  %h2
+    Tree:
+    = tree.sha
+  .detail-container
+    .header
+      - if params[:name]
+        %span.tree
+          Contents for :
+        =params[:name]
+      - else
+        %span.tree
+          Contents :
+    .content
+      %pre
+        :ruby
+          tree.contents_array.collect{|x| x.split /\s|\s/}.each do |(perm, type, sha, name)|
+            haml_io << "#{perm} #{type} <sha><a href=\"#{type}/#{sha}?name=#{name}\">#{sha}</a></sha> #{name}\n"
+          end
