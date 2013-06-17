@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'mimemagic'
   gem.add_dependency 'diffy'
   gem.add_dependency 'thin'
+  gem.add_dependency 'rainbow'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
