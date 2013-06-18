@@ -3,7 +3,7 @@ module GitGuts
     desc 'Quotes a person'
     argument :name, :required => true, :banner => '<PERSON NAME>', :type => :string
 
-    def about
+    def quote
       if name.downcase != 'linus'
         "\nSorry, I do not know this guy\n".red.slow_puts
       else

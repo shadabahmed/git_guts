@@ -20,7 +20,7 @@ module GitGuts
         ENV['GIT_DIR'] = WORKING_DIRECTORY
         require 'git_server/lib/git_server_app'
         Rack::Server.start :app => GitServerApp, :Port => options[:port]
-      rescue ArgumentError => e
+      rescue ArgumentError
         puts "Could not start server. Is it a valid git repository ?"
       else
         puts "Server closed"

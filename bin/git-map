@@ -1,11 +1,4 @@
 #!  /usr/bin/env  rvm 1.9 do ruby
-
-load File.expand_path('../helper.rb', __FILE__)
-file_path = File.expand_path("../../support/#{ARGV[0]}-#{ARGV[1]}map.gif", __FILE__)
-
-unless File.exists?(file_path)
-  "\nMap for #{ARGV[0]} does not exist\n".red.putss
-  exit
-end
-
-`open file:///#{file_path}`
+require 'git_guts'
+require 'git_guts/map'
+GitGuts::Map.start
