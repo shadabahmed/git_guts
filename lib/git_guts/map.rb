@@ -5,12 +5,12 @@ module GitGuts
 
     desc 'Shows a map'
     def map
-      if name.downcase != 'africa'
+      if country.downcase != 'africa'
         "\nMap for #{ARGV[0]} does not exist\n".red.slow_puts
       else
         type = options[:full] ? 'fullmap' : 'map'
-        file_path = File.expand_path("../../bin/support/#{country}-#{type}.gif", __FILE__)
-        `open file:///#{file_path}`
+        file_path = File.expand_path("../../../bin/support/#{country}-#{type}.gif", __FILE__)
+        `open file://#{file_path}`
       end
     end
   end

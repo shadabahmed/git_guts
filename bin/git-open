@@ -1,21 +1,4 @@
 #!  /usr/bin/env  rvm 1.9 do ruby
-
-load File.expand_path('../helper.rb', __FILE__)
-
-if ARGV[0] == '--index'
-  contents = `git ls-files -s`
-  exit if $?.to_i > 0
-  "Index Object Contents:\n".blue.putss(1000)
-  contents.cyan.putss(1000)
-else
-  type = `git cat-file -t #{ARGV[0]}`
-  exit if $?.to_i > 0
-  length = `git cat-file -s #{ARGV[0]}`
-  exit if $?.to_i > 0
-  body = `git cat-file -p #{ARGV[0]}`
-  exit if $?.to_i > 0
-
-  "Object Type: #{type}".blue.putss(1000)
-  "Object Size: #{length}".red.putss(1000)
-  "Object Body:\n#{body}".cyan.putss(1000)
-end
+require 'git_guts'
+require 'git_guts/open'
+GitGuts::Open.start
