@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Helper commands to see your way around git}
   gem.homepage      = "http://github.com/shadabahmed/git_guts"
 
+  gem.add_dependency 'rack'
   gem.add_dependency 'thor'
   gem.add_dependency 'sinatra'
   gem.add_dependency 'haml'

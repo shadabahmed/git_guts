@@ -1,3 +1,4 @@
+require 'rack'
 require 'git'
 require 'sinatra'
 require 'haml'
@@ -18,7 +19,7 @@ module GitGuts
         ENV['RACK_ENV'] = 'production'
         ENV['GIT_DIR'] = WORKING_DIRECTORY
         require 'git_server/lib/git_server_app'
-        Rack::Server.start :app => GitServer::App, :Port => options[:port]
+        Rack::Server.start :app => GitServerApp, :Port => options[:port]
       rescue ArgumentError => e
         puts "Could not start server. Is it a valid git repository ?"
       else
@@ -27,3 +28,4 @@ module GitGuts
     end
   end
 end
+

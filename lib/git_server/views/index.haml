@@ -20,5 +20,6 @@
           %li.separator
   .objects
     %h2
-      Repository at
-      =repo.path
+      %a{:href => "/#{File.basename repo.dir.path}.git"}
+        Repository
+        =repo.repo.path

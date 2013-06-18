@@ -3,9 +3,8 @@ module GitServer
   GitRepo = Git.open(REPO_PATH)
   class App < Sinatra::Base
     get '/' do
-      repo = GitRepo.repo
       commits = GitRepo.log
-      haml :index, :locals => {:commits => commits, :repo => repo}
+      haml :index, :locals => {:commits => commits, :repo => GitRepo}
     end
 
     get '/commit/:sha' do |sha|
