@@ -32,29 +32,30 @@ module GitServer
       haml :'404'
     end
 
+    private
+
     helpers do
       def data_uri(blob)
         base64 = Base64.encode64(blob.contents).gsub("\n",'')
-        mime = MimeMagic.by_magic(blob.contents)
+        mime = FileMagic.new(FileMagic::MAGIC_MIME).buffer(blob.contents)
         "data:#{mime};base64,#{base64}"
       end
 
       def file_type(blob, name)
         determine_type(blob, name)
       end
-    end
 
-    private
-
-    def determine_type(blob, name)
-      basename, extname = File.basename(name), File.extname(name).downcase
-      if %w[.bmp .gif .jpg .jpeg .png].include?(extname)
-        :image
-      else
-        file = Tempfile.new([basename, extname])
-        file.write(blob.contents)
-        file.close
-        File.binary?(file.path) ? :binary : :text
+      def determine_type(blob, name)
+        extname = File.extname(name).downcase
+        if %w[.bmp .gif .jpg .jpeg .png].include?(extname)
+          :image
+        else
+          case FileMagic.new(FileMagic::MAGIC_MIME).buffer(blob.contents)
+            when /image/ then :image
+            when /binary/ then :binary
+            else :text
+          end
+        end
       end
     end
   end

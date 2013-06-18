@@ -13,12 +13,12 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/shadabahmed/git_guts"
 
   gem.add_dependency 'rack'
+  gem.add_dependency 'guard'
   gem.add_dependency 'thor'
   gem.add_dependency 'sinatra'
   gem.add_dependency 'haml'
   gem.add_dependency 'git'
-  gem.add_dependency 'ptools'
-  gem.add_dependency 'mimemagic'
+  gem.add_dependency 'ruby-filemagic'
   gem.add_dependency 'diffy'
   gem.add_dependency 'thin'
 
