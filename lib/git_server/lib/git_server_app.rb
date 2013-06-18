@@ -1,4 +1,3 @@
-Bundler.require
 require_relative 'git_server'
 require_relative 'version'
 require 'tempfile'

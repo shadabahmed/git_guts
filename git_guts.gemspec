@@ -20,10 +20,16 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'mimemagic'
   gem.add_dependency 'diffy'
   gem.add_dependency 'thin'
-  gem.add_dependency 'rainbow'
 
   gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.post_install_message = <<-MSG
+
+Thanks for installing
+Please include this line in your bash profile:
+
+export PATH=#{gem.gem_dir}/bin:$PATH
+
+  MSG
 end

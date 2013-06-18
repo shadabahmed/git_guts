@@ -10,7 +10,7 @@
         %span{:class => diff.type}
           ="#{diff.type.capitalize} : "
         =diff.path
-      - type = diff.blob && file_type(diff.blob, diff.path)
+      - type = diff.blob && file_type(diff.blob, diff.path) rescue next
       .content{:class => type}
         - if type == :image
           %img{:src => data_uri(diff.blob)}

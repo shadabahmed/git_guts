@@ -1,7 +1,8 @@
-#!/usr/bin/env ruby
+#! /usr/bin/env rvm 1.9 do ruby
 require 'git_guts'
 require 'git_guts/about'
 GitGuts::About.start
+
 __END__
 
 Shadab Ahmed
