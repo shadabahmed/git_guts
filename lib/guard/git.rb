@@ -15,8 +15,8 @@ module Guard
 
     def run_on_change(paths)
       changed_paths = paths.join(' ')
-      puts %Q{Auto committing #{changed_paths}}
-      %x{git add -A #{changed_paths} && git commit -m "auto commit at #{Time.now.strftime("%l:%m%P, %d %h %Y")}"}
+      puts %Q{Auto committing #{"all files" unless options[:exclusive]} after changes in #{changed_paths}}
+      %x{git add -A #{changed_paths if options[:exclusive]} && git commit -m "Autocommit at #{Time.now.strftime("%l:%m%P, %d %h %Y")}"}
     end
   end
 end

@@ -3,7 +3,7 @@ module GitServer
   GitRepo = Git.open(REPO_PATH)
   class App < Sinatra::Base
     get '/' do
-      commits = GitRepo.log
+      commits = GitRepo.object('HEAD') && GitRepo.log(100) rescue []
       haml :index, :locals => {:commits => commits, :repo => GitRepo}
     end
 
@@ -52,7 +52,7 @@ module GitServer
         else
           case FileMagic.new(FileMagic::MAGIC_MIME).buffer(blob.contents)
             when /image/ then :image
-            when /binary/ then :binary
+            when /binary|octet/ then :binary
             else :text
           end
         end
