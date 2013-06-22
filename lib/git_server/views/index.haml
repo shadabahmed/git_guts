@@ -4,7 +4,7 @@
       Git Server
       ="v#{GitServer::Version}"
     %h2
-      Commits
+      Commits (#{commits.size})
       %a{:class => 'reset'}
     %ol.progress-bar
       - commits.each do |commit|
@@ -20,6 +20,6 @@
           %li.separator
   .objects
     %h2
-      %a{:href => "/#{File.basename repo.dir.path}.git"}
+      %a{:href => GitServer::Repository.url}
         Repository
         =repo.repo.path

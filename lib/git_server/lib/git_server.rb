@@ -1,6 +1,6 @@
 module GitServer
   REPO_PATH = ENV['GIT_DIR'] || Dir.getwd
-  GitRepo = Git.open(REPO_PATH)
+  GitRepo = ENV['BARE'] ? Git.bare(REPO_PATH) : Git.open(REPO_PATH)
   class App < Sinatra::Base
     get '/' do
       commits = GitRepo.object('HEAD') && GitRepo.log(100) rescue []

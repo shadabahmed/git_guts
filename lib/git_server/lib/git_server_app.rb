@@ -21,7 +21,11 @@ module GitServer
     end
 
     def self.url
-      "/#{File.basename GitRepo.dir.path}.git"
+      if ENV['BARE']
+        "/#{File.basename File.expand_path(GitRepo.repo.path)}"
+      else
+        "/#{File.basename GitRepo.dir.path}.git"
+      end
     end
 
     def initialize
