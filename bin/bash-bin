@@ -1,5 +1,5 @@
 DIR = File.expand_path('../', __FILE__)
 SCRIPT_NAME = File.basename(__FILE__)
-BASH_BIN = File.read("#{DIR}/scripts/#{SCRIPT_NAME}").chomp
+BASH_BIN = "#{DIR}/scripts/#{SCRIPT_NAME}"
 ARGV.insert(0, BASH_BIN)
 exec '/bin/bash', *ARGV

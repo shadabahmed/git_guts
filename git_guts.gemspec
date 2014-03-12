@@ -31,10 +31,13 @@ Gem::Specification.new do |gem|
   end
   gem.post_install_message = <<-MSG
 
-Thanks for installing
-Please include this line in your bash profile:
+************************************************************
+Thanks for installing git-guts
 
-which ruby > #{gem.gem_dir}/bin/RUBY_BIN
+Please run this command manually:
 
-  MSG
+which ruby > #{gem.gem_dir}/bin/RUBY_BIN_PATH
+
+************************************************************
+MSG
 end
