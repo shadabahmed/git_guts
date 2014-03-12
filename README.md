@@ -18,6 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
+These commands are available:
+
+```
+git-about
+git-fireworks
+git-inception
+git-multipush
+git-open
+git-server
+git-welcome
+git-autocommit
+git-guts
+git-map
+git-music
+git-quote
+git-test
+```
+
 TODO: Write usage instructions here
 
 ## Contributing
