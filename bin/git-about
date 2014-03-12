@@ -1,14 +1,5 @@
-#! /usr/bin/env rvm 1.9 do ruby
-require 'git_guts'
-require 'git_guts/about'
-GitGuts::About.start
-
-__END__
-
-Shadab Ahmed
-
-Ruby Developer
-
-Dabbles a bit in other languages
-
-Git Envangelist
+#! /bin/bash
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )
+RUBY_BIN=$(head -n 1 $DIR/RUBY_BIN)
+SCRIPT_NAME=$(basename $BASH_SOURCE)
+exec "$RUBY_BIN" "$DIR/scripts/$SCRIPT_NAME.rb" "$@"

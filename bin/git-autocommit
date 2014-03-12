@@ -1,4 +1,1 @@
-#! /usr/bin/env rvm 1.9 do ruby
-require 'git_guts'
-require 'git_guts/autocommit'
-GitGuts::Autocommit.start
+git-about

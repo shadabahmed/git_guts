@@ -1,4 +1,1 @@
-#! /usr/bin/env rvm 1.9 do ruby
-require 'git_guts'
-require 'git_guts/server'
-GitGuts::Server.start
+git-about

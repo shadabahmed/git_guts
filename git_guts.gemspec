@@ -25,12 +25,16 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  gem.executables   = Dir[File.expand_path('../bin/*', __FILE__)]
+  #gem.post_install do
+  #  `which ruby > #{gem.gem_dir}/bin/RUBY_BIN`
+  #end
   gem.post_install_message = <<-MSG
 
 Thanks for installing
 Please include this line in your bash profile:
 
-export PATH=#{gem.gem_dir}/bin:$PATH
+which ruby > #{gem.gem_dir}/bin/RUBY_BIN
 
   MSG
 end
