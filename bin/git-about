@@ -1,5 +1,1 @@
-#! /bin/bash
-DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )
-RUBY_BIN=$(head -n 1 $DIR/RUBY_BIN)
-SCRIPT_NAME=$(basename $BASH_SOURCE)
-exec "$RUBY_BIN" "$DIR/scripts/$SCRIPT_NAME.rb" "$@"
+ruby-bin

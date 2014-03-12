@@ -25,10 +25,10 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.executables   = Dir[File.expand_path('../bin/*', __FILE__)]
-  #gem.post_install do
-  #  `which ruby > #{gem.gem_dir}/bin/RUBY_BIN`
-  #end
+  gem.executables   = `git ls-files ./bin`.split($/).reject{|f| f =~ /(scripts|support)/}.collect{|f| f.sub('bin/', '')}
+  Gem.post_install do
+    `which ruby > #{gem.gem_dir}/bin/RUBY_BIN`
+  end
   gem.post_install_message = <<-MSG
 
 Thanks for installing

@@ -1,0 +1,5 @@
+DIR = File.expand_path('../', __FILE__)
+RUBY_BIN = File.read("#{DIR}/RUBY_BIN").chomp
+SCRIPT_NAME = File.basename(__FILE__)
+ARGV.insert(0, "#{DIR}/scripts/#{SCRIPT_NAME}.rb")
+exec RUBY_BIN, *ARGV
