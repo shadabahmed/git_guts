@@ -1,19 +1,4 @@
 DIR = File.expand_path('../', __FILE__)
-begin
-  RUBY_BIN = File.read("#{DIR}/RUBY_BIN_PATH").chomp
-rescue
-  puts <<-MSG
-
-Looks like you haven't specified which ruby to use.
-
-Please run this command manually:
-
-which ruby > #{DIR}/RUBY_BIN_PATH
-
-MSG
-
-  exit
-end
 SCRIPT_NAME = File.basename(__FILE__)
 ARGV.insert(0, "#{DIR}/scripts/#{SCRIPT_NAME}.rb")
-exec RUBY_BIN, *ARGV
+exec `which ruby`, *ARGV
