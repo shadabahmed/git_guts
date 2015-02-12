@@ -2,4 +2,4 @@ DIR = File.expand_path('../', __FILE__)
 SCRIPT_NAME = File.basename(__FILE__)
 BASH_BIN = "#{DIR}/scripts/#{SCRIPT_NAME}"
 ARGV.insert(0, BASH_BIN)
-exec `which bash`, *ARGV
+exec `which bash`.strip, *ARGV
