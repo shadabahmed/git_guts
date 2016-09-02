@@ -1,1 +1,4 @@
-./ruby-bin
+DIR = File.expand_path('../', __FILE__)
+SCRIPT_NAME = File.basename(__FILE__)
+ARGV.insert(0, "#{DIR}/scripts/#{SCRIPT_NAME}.rb")
+exec Gem.ruby, *ARGV
